@@ -1,13 +1,14 @@
 import './App.css';
-import Search from './components/Search'
+import Main from './components/Main'
 require('dotenv').config()
 
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<Search queryString="a"/>
-			</header>
+			<>
+				<Main/>
+			</>
+
 		</div>
 	);
 }
