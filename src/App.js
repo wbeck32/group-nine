@@ -6,8 +6,8 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
+				<Search queryString="a"/>
 			</header>
-			<Search/>
 		</div>
 	);
 }

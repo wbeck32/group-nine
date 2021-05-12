@@ -1,19 +1,14 @@
 import React, {useState,useEffect} from 'react'
 import {TextField} from '@material-ui/core'
 import {Autocomplete} from '@material-ui/lab'
-import dotenv from 'dotenv'
 
 
-const Search = () =>{
-	
+const Search = props => {
+
 	let movieList = []
-	const [
-		queryString,
-		setQueryString
-	] = useState('star wars')
-	
-	useEffect(()=>{
-		return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${queryString}`)
+	let queryString = ''
+	const handleChange = e =>{
+		return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`)
 			.then(response => {
 				if (response.status === 200) {
 					return response.json();
@@ -22,27 +17,18 @@ const Search = () =>{
 				}
 			})
 			.then(response => {
-				console.debug(response.results);
 				movieList = response.results
-			// ...
 			}).catch(error => {
 				console.error(error);
 			});
-	},[queryString])
-	const handleChange = (e,input) =>{
-		console.log('e,input:', e,input);
-
-
 	}
 	return(
 		<>
-			<div>{movieList}</div>
 			<Autocomplete
 				freeSolo
 				id="free-solo-2-demo"
 				disableClearable
-				options={movieList.map((movie) => movie.results)}
-				onChange={(e,input)=>handleChange(e,input)}
+				options={movieList.map((movie) => movie.title)}
 				renderInput={(params) => (
 					<TextField
 						autoComplete="true"
@@ -51,6 +37,8 @@ const Search = () =>{
 						margin="normal"
 						variant="outlined"
 						value={queryString}
+						onChange={e=>handleChange(e)}
+						InputProps={{ ...params.InputProps, type: 'search' }}
 					/>
 				)}
 			/>
