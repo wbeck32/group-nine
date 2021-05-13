@@ -47,7 +47,7 @@ const Main = props => {
 
 	return (
 		<>
-			<Search movieList={movies} query={query} handleChange={e=>props.handleChange(e)} handleOptionLabel={e=>handleOptionLabel(e)} />
+			<Search />
 			<MovieList movieList={movies} />
 		</>
 	)

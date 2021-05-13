@@ -38,7 +38,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<Main handleChange={e=>handleChange(e)} movieList={movieList}/>
+			<Main handleChange={e=>handleChange(e)} inputValue="d"/>
 		</div>
 	);
 }
