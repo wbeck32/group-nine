@@ -7,17 +7,13 @@ const MovieList = props => {
 	
 	return (
 		<div>
-		
 			{movieList &&
 			movieList.map(i=>{
 				return <Card key={i.id}>{i.title}</Card>
 			})
 			}
-		</div>
-		
-		
-	)
-		
+		</div>	
+	)		
 }
 	
 export default MovieList

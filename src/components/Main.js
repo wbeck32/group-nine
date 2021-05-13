@@ -1,18 +1,16 @@
 /* eslint-disable no-prototype-builtins */
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Search from './Search'
 import MovieList from './MovieList'
 
 const Main = () => {
+
 	const [
 		movieList,
 		setMovieList
 	] = useState([])
 	
-
-
 	const handleChange = e => {
-		console.log('e:', e);
 		console.log('e.target.value: in Main', e.target.value);
 		let query = e.target.value
 		encodeURI(query)
