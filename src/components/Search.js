@@ -11,13 +11,14 @@ const Search = props => {
 				id="free-solo-demo"
 				freeSolo
 				options={movieList.map((option) => option.title)}
+				onInputChange={e=>handleChange(e)}
 				renderInput={(params) => (
 					<TextField 
 						{...params} 
-						label="freeSolo" 
+						autoFocus
+						label="search movie database" 
 						margin="normal" 
 						variant="outlined" 
-						onChange={e=>handleChange(e)}
 					/>
 				)}
 			/>

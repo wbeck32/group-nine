@@ -1,17 +1,38 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Card} from '@material-ui/core'
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 
 const MovieList = props => {
 	console.log('props in movie list:', props);
-	const {movieList} = props
-	
+	const {movieList, numPages} = props
+	const [
+		pages,
+		setPages
+	] = useState(numPages)
+
+	const handleNext = e => {
+		console.log('e:', e);
+	}
 	return (
 		<div>
-			{movieList &&
+			<InfiniteScroll
+				dataLength={pages}
+				hasMore={true}
+				next={e=>handleNext(e)}
+				loader={<h4>Loading...</h4>}
+				endMessage={
+					<p style={{ textAlign: 'center' }}>
+						<b>Yay! You have seen it all</b>
+					</p>
+				}
+			>
+				{movieList &&
 			movieList.map(i=>{
 				return <Card key={i.id}>{i.title}</Card>
 			})
-			}
+				}
+			</InfiniteScroll>
 		</div>	
 	)		
 }
