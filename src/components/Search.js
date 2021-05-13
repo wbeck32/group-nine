@@ -1,21 +1,15 @@
-import React, {useState} from 'react'
+import React,{useState} from 'react'
 import {TextField} from '@material-ui/core'
 import {Autocomplete} from '@material-ui/lab'
 
 const Search = props => {
 	console.log('props in search:', props);
-	let {movieList, handleChange} = props 
-	let queryString = ''
+	let {movieList, handleOptionLabel, handleChange,query} = props 
 
-	const handleOptionLabel = option => {
-		console.log('option:', option);
-		// eslint-disable-next-line no-prototype-builtins
-		if (option.hasOwnProperty('title')) {
-			return option.title;
-		}
-		return "";
-	}
-
+	const [
+		queryString,
+		setQueryString
+	] = useState(query)
 
 	return(
 		<>
@@ -27,14 +21,14 @@ const Search = props => {
 				getOptionLabel={e=>handleOptionLabel(e)}
 				renderInput={(params) => (
 					<TextField
-						autoComplete="true"
+						autoFocus
 						{...params}
 						label="Search input"
 						margin="normal"
+						onChange={e=>handleChange(e)}
 						variant="outlined"
 						value={queryString}
-						onChange={e=>handleChange(e)}
-						InputProps={{ ...params.InputProps, type: 'search' }}
+						InputProps={{ ...params.InputProps,type: 'search' }}
 					/>
 				)}
 			/>
