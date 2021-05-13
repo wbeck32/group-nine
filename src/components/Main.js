@@ -25,6 +25,10 @@ const Main = props => {
 	}
 	const handleListChange=movieList=>{
 		console.log('movieList in handleListChange:', movieList);
+	}
+
+	const getItemSelected=e=>{
+		console.log('e:', e);
 
 
 	}
@@ -32,7 +36,7 @@ const Main = props => {
 	return (
 		<>
 			<Search movieList={movieList} handleChange={(e)=>handleChange(e)}/>
-			<MovieList movieList={movieList} handleListChange={(e)=>handleListChange(e)}/>
+			<MovieList movieList={movieList} onClick={e=>getItemSelected(e)} handleListChange={(e)=>handleListChange(e)}/>
 		</>
 	)
 }
