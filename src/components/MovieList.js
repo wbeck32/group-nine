@@ -2,7 +2,7 @@ import React from 'react'
 import {Card} from '@material-ui/core'
 
 const MovieList = props => {
-	// console.log('props in movie list:', props);
+	console.log('props in movie list:', props);
 	const {movieList} = props
 	
 	return (
