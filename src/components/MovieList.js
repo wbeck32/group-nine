@@ -2,23 +2,24 @@ import React, {useState} from 'react'
 import {Card} from '@material-ui/core'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-
 const MovieList = props => {
 	console.log('props in movie list:', props);
-	const {movieList, numPages} = props
+	const {movieList,numPages} = props
+	
 	const [
-		pages,
-		setPages
-	] = useState(numPages)
+		hasMore,
+		setHasMore
+	] = useState(false)
 
 	const handleNext = e => {
 		console.log('e:', e);
+
+
 	}
 	return (
 		<div>
 			<InfiniteScroll
-				dataLength={pages}
-				hasMore={true}
+				dataLength={movieList.length}
 				next={e=>handleNext(e)}
 				loader={<h4>Loading...</h4>}
 				endMessage={
@@ -29,7 +30,7 @@ const MovieList = props => {
 			>
 				{movieList &&
 			movieList.map(i=>{
-				return <Card key={i.id}>{i.title}</Card>
+				return <Card key={i.id * Math.random()}>{i.title}</Card>
 			})
 				}
 			</InfiniteScroll>

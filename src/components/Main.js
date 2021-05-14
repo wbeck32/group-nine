@@ -33,9 +33,8 @@ const Main = () => {
 					}
 				})
 				.then(response => {
-					setCurrentPage(currentPage + 1)
 					setNumPages(response.total_pages)
-					setMovieList(response.results)
+					setMovieList(movieList.concat(response.results))
 				})
 				.catch(error => {
 					console.error(error);
@@ -53,7 +52,7 @@ const Main = () => {
 	return (
 		<>
 			<Search movieList={movieList} handleOptionLabel={e=>handleOptionLabel(e)} handleChange={e=>handleChange(e)}/>
-			<MovieList movieList={movieList} handleChange={e=>handleChange(e)} currentPage={currentPage} numPages={numPages}/>
+			<MovieList movieList={movieList} numPages={numPages}/>
 		</>
 	)
 }
