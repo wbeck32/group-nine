@@ -4,19 +4,13 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 const MovieList = props => {
 	console.log('props in movie list:', props);
-	const {movieList} = props
+	const {movieList, numPages} = props
 	
-
-	const handleNext = e => {
-		console.log('e:', e);
-
-
-	}
 	return (
 		<div>
 			<InfiniteScroll
 				dataLength={movieList.length}
-				next={e=>handleNext(e)}
+				hasMore={numPages> 0 ? true:false}
 				loader={<h4>Loading...</h4>}
 				endMessage={
 					<p style={{ textAlign: 'center' }}>
