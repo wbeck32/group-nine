@@ -3,7 +3,7 @@ import {Card} from '@material-ui/core'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const MovieList = props => {
-	console.log('props in movie list:', props);
+	// console.log('props in movie list:', props);
 	const {movieList,numPages} = props
 	
 	const [
