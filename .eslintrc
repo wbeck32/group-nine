@@ -18,14 +18,5 @@
 		"sourceType": "module"
 	},
 	"rules": {
-		"array-bracket-newline":"error",
-		"array-element-newline":"error",
-		"eqeqeq":"error",
-		"indent":"off",
-		"no-fallthrough":"error",
-		"no-useless-return":"error",
-		"no-unused-vars": "off",
-		"require-await":"error",
-		"newline-per-chained-call":"off",
 	}
 }

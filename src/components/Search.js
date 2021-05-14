@@ -5,11 +5,13 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 const Search = props => {
 	const {movieList,handleChange} = props
 
+
 	return (
 		<div style={{ width: 300 }}>
 			<Autocomplete
 				id="free-solo-demo"
 				freeSolo
+				open={false}
 				options={movieList.map((option) => option.title)}
 				onInputChange={e=>handleChange(e)}
 				renderInput={(params) => (

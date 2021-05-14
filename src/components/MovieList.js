@@ -1,15 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Card} from '@material-ui/core'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const MovieList = props => {
-	// console.log('props in movie list:', props);
-	const {movieList,numPages} = props
+	console.log('props in movie list:', props);
+	const {movieList} = props
 	
-	const [
-		hasMore,
-		setHasMore
-	] = useState(false)
 
 	const handleNext = e => {
 		console.log('e:', e);

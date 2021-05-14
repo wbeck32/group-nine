@@ -15,11 +15,7 @@ const Main = () => {
 		setNumPages
 	] = useState(0)
 	
-	const [
-		currentPage,
-		setCurrentPage
-	] = useState(1)
-	
+	let currentPage = 1
 	const handleChange = e => {
 		if(e.target.value.length > 0){
 			let query = e.target.value
